@@ -9,11 +9,11 @@
 # @author Gorka Laucirica <gorka.lauzirika@gmail.com>
 
 parameters:
-    database_host:                      127.0.0.1
-    database_port:                      ~
+    database_host:                      mysql
+    database_port:                      3306
     database_name:                      db_name
     database_user:                      root
-    database_password:                  ~
+    database_password:                  H5UAc6VILJL0
     database_server_version:            5.7
 
     mailer_transport:                   smtp

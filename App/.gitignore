@@ -32,3 +32,5 @@
 /var/sessions/*
 !var/sessions/.gitkeep
 /vendor
+src/App/Infrastructure/Ui/Assets/.eslintrc.js
+src/App/Infrastructure/Ui/Assets/.stylelintrc.js
