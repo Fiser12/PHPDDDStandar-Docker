@@ -1,0 +1,31 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+# @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+
+imports:
+    - { resource: config.yml }
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: error
+            handler: nested
+        nested:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type: console

@@ -1,0 +1,65 @@
+version: '3.2'
+
+networks:
+  crv_dev_network:
+    driver: bridge
+
+services:
+  db:
+    container_name: mysql
+    image: mysql:5.7.17
+    env_file:
+      - ./.env
+    volumes:
+      - ./volumes/mysql/database:/var/lib/mysql
+      - ./volumes/mysql/conf:/etc/mysql/conf.d
+    networks:
+      crv_dev_network:
+        aliases:
+          - mysql
+    ports:
+      - "3306:3306"
+
+  app:
+    container_name: symfony-app
+    build:
+      context: ../
+      dockerfile: ./Docker/php/Dockerfile.prod
+      args:
+        env: dev
+
+    volumes:
+      - app_data:/app:rw
+      - ./volumes/log/App:/app/App/var/logs
+      - ./volumes/cache/App:/app/App/var/cache
+      - ./volumes/log/CompositeUi:/app/CompositeUi/var/log
+      - ./volumes/cache/CompositeUi:/app/CompositeUi/var/cache
+    networks:
+      crv_dev_network:
+        aliases:
+          - php
+    env_file:
+      - ./.env
+
+  nginx:
+    container_name: nginx-server
+    build:
+      context: nginx
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80"
+      - "81:81"
+    volumes:
+      - app_data:/app:rw
+      - ./volumes/log/Nginx:/var/log/nginx
+    depends_on:
+      - app
+
+    networks:
+      crv_dev_network:
+        aliases:
+          - nginx
+
+volumes:
+    app_data:
+        driver: local

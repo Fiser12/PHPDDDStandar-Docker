@@ -1,0 +1,20 @@
+// This file is part of the Php DDD Standard project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+
+$small-cols: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+$medium-cols: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+$large-cols: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+$row-width: 1170;
+$small-breakpoint: 640;
+$medium-breakpoint: 1024;
+$large-breakpoint: 1200;
+$adaptive-row-large-width: 930;
+$adaptive-row-xlarge-width: 1170;
+
+@import '../../../node_modules/lin3s-css-grid/scss/variables';

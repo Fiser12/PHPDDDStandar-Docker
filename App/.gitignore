@@ -1,0 +1,34 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+# @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+
+/.editorconfig
+/.lin3s_cs.yml
+/.php_cs*
+/.phpspec_cs*
+/.web-server-pid
+/composer.phar
+/parameters.yml
+/src/App/Infrastructure/Ui/Assets/.eslint.yml
+/src/App/Infrastructure/Ui/Assets/.scss_lint.yml
+/src/App/Infrastructure/Ui/Assets/node_modules
+/src/App/Infrastructure/Ui/Assets/build
+!/src/App/Infrastructure/Ui/Assets/build/.gitkeep
+/src/App/Infrastructure/Ui/Http/Symfony/.htaccess
+/src/App/Infrastructure/Ui/Http/Symfony/bundles
+/src/App/Infrastructure/Ui/Http/Symfony/robots.txt
+/src/App/Infrastructure/Ui/manifest.json
+/var/bootstrap.php.cache
+/var/cache/*
+!var/cache/.gitkeep
+/var/logs/*
+!var/logs/.gitkeep
+/var/sessions/*
+!var/sessions/.gitkeep
+/vendor

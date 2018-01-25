@@ -1,0 +1,77 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+
+parameters:
+    enabled:
+        - twigcs
+        - phpcsfixer
+        - stylelint
+        - eslint
+
+    name: Php DDD Standard project
+    type: project
+    year: 2017-present
+    author: LIN3S
+    email: info@lin3s.com
+
+    phpmd_path: src
+    phpmd_rules:
+        - controversial
+        - unusedcode
+        - codesize
+        - naming
+
+    twigcs_path: src/App/Infrastructure/Ui/Templates/Twig
+
+    phpcsfixer_path: src
+    phpcsfixer_test_path: tests
+    phpcsfixer_file_location: .
+
+    stylelint_path: src/App/Infrastructure/Ui/Assets/scss
+    stylelint_file_location: src/App/Infrastructure/Ui/Assets
+    stylelint_exclude: []
+    stylelint_rules: []
+
+    eslint_path: src/App/Infrastructure/Ui/Assets/js
+    eslint_file_location: src/App/Infrastructure/Ui/Assets
+    eslint_exclude: []
+    eslint_rules:
+        plugins:
+            - babel
+            - react
+            - class-property
+        rules:
+            babel/semi: [error, always]
+            react/display-name: off
+            react/forbid-prop-types: off
+            react/jsx-boolean-value: off
+            react/jsx-closing-bracket-location: off
+            react/jsx-curly-spacing: off
+            react/jsx-indent-props: off
+            react/jsx-max-props-per-line: off
+            react/jsx-no-duplicate-props: error
+            react/jsx-no-literals: off
+            react/jsx-no-undef: error
+            jsx-quotes: error
+            react/jsx-sort-props: error
+            react/jsx-uses-react: error
+            react/jsx-uses-vars: error
+            react/no-danger: error
+            react/no-did-mount-set-state: error
+            react/no-did-update-set-state: error
+            react/no-direct-mutation-state: error
+            react/no-set-state: off
+            react/no-unknown-property: error
+            react/prop-types: off
+            react/react-in-jsx-scope: off
+            react/require-extension: off
+            react/self-closing-comp: off
+            react/sort-comp: off
+            react/sort-prop-types: error
+            react/wrap-multilines: off

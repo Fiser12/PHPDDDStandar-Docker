@@ -1,0 +1,13 @@
+// This file is part of the Php DDD Standard project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+
+$transition-type-ease: ease;
+$transition-type-cubic-bezier-1: cubic-bezier(.94, .06, .32, .95);
+$transition-duration-03s: .3s;
+$transition-opacity: opacity $transition-duration-03s $transition-type-cubic-bezier-1 0s;

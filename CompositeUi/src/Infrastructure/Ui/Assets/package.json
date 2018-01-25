@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "bengor-cookies": "^0.8",
+    "fastclick": "^1.0.6",
+    "lin3s-css-grid": "^0.3.0",
+    "lin3s-event-bus": "^0.9.0",
+    "lin3s-front-foundation": "^0.13.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "objectFitPolyfill": "^2.0.5",
+    "picturefill": "^3.0.2",
+    "validatory": "^0.1.0",
+    "webfontloader": "^1.6.28",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "array-from": "^2.1.1",
+    "array-includes": "^3.0.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "lin3s-distribution": "^4.2.2",
+    "promise": "^7.3.0"
+  },
+  "babel": {
+    "presets": [
+      "stage-2",
+      "es2015"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-object-assign"
+    ]
+  },
+  "scripts": {
+    "phoenix": "rm -rf node_modules && yarn install",
+    "build": "node_modules/webpack/bin/webpack.js",
+    "build:analyze": "node_modules/webpack/bin/webpack.js --env.analyze",
+    "build:prod": "node_modules/webpack/bin/webpack.js --env.env prod -p",
+    "build:watch": "node_modules/webpack/bin/webpack.js --watch"
+  }
+}

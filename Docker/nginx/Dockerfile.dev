@@ -1,0 +1,11 @@
+FROM nginx
+
+RUN groupadd -r ubuntu-group && useradd --no-log-init -r -g ubuntu-group ubuntu-user
+
+RUN apt-get update && \
+    apt-get install -y vim
+
+COPY conf/dev/nginx.conf /etc/nginx/nginx.conf
+ADD sites-enabled/dev/ /etc/nginx/sites-enabled/
+
+CMD ["nginx", "-g", "daemon off;"]

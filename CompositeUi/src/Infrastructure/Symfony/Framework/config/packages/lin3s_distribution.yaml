@@ -1,0 +1,12 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+lin3s_distribution:
+    webpack:
+        manifest_path: '%kernel.root_dir%/../../Ui/manifest.json'
+        public_js_path: '/build/'
+        public_css_path: '/build'

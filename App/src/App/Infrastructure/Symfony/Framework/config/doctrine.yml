@@ -1,0 +1,30 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+# @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/../../Persistence/Doctrine/Migrations"
+    namespace: App\Infrastructure\Persistence\Doctrine\Migrations
+    table_name: migration_versions
+    name: App migrations
+
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: "%database_host%"
+        port: "%database_port%"
+        dbname: "%database_name%"
+        user: "%database_user%"
+        password: "%database_password%"
+        server_version: "%database_server_version%"
+        charset: UTF8
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true

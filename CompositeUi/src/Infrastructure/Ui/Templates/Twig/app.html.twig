@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+{% block html_tag %}
+<html {% block html_class %}class="no-js" {% endblock %}lang="{{ app.request.locale }}">
+{% endblock html_tag %}
+
+{% block head %}
+    <head>
+        <meta charset="{{ _charset }}">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{%- block title -%}PhpDDDStandard | LIN3S{%- endblock -%}</title>
+        <meta name="description" content="
+    {%- block description -%}
+        Lorem ipsum...
+    {%- endblock -%}">
+
+        {% block favicon %}
+            <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('apple-touch-icon-57x57.png') }}"/>
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('apple-touch-icon-114x114.png') }}"/>
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('apple-touch-icon-72x72.png') }}"/>
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('apple-touch-icon-144x144.png') }}"/>
+            <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('apple-touch-icon-120x120.png') }}"/>
+            <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('apple-touch-icon-152x152.png') }}"/>
+            <link rel="icon" type="image/png" href="{{ asset('favicon-32x32.png') }}" sizes="32x32"/>
+            <link rel="icon" type="image/png" href="{{ asset('favicon-16x16.png') }}" sizes="16x16"/>
+            <meta name="application-name" content="PhpDDDStandard"/>
+            <meta name="msapplication-TileColor" content="#FFFFFF"/>
+            <meta name="msapplication-TileImage" content="{{ asset('mstile-144x144.png') }}"/>
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block head_style %}
+            {% webpack_entry_css 'app' %}
+        {% endblock %}
+
+        {% block schema_org %}
+            {# Schema.org markup for Google+
+              - Info: https://developers.google.com/structured-data/
+              - Validator: https://developers.google.com/structured-data/testing-tool/ #}
+            <meta itemprop="name" content="{{ block('title') }}"/>
+            <meta itemprop="description" content="{{ block('description') }}"/>
+            <meta itemprop="image" content="{{ block('open_graph_image') }}"/>
+        {% endblock %}
+
+        {% block twitter_card %}
+            {# Twitter Card data, use only when needed
+              - Info: https://dev.twitter.com/cards/overview
+              - Validator: https://cards-dev.twitter.com/validator
+             #}
+            <meta name="twitter:site" content="@account"/>
+            <meta name="twitter:creator" content="@account"/>
+            <meta name="twitter:text:title" content="{{ block('title') }}"/>
+            <meta name="twitter:text:description" content="{{ block('description') }}"/>
+            <meta name="twitter:image" content="
+            {%- block open_graph_image -%}
+                {{ app.request.schemeAndHttpHost ~ asset('images/opengraph.png') }}
+            {%- endblock -%}"/>
+        {% endblock %}
+
+        {% block open_graph %}
+            {# Open Graph data, use only when needed
+              - Info: https://developers.facebook.com/docs/sharing/best-practices#tags
+              - Validator: https://developers.facebook.com/tools/debug
+             #}
+            <meta property="og:title" content="{{ block('title') }}"/>
+            <meta property="og:site_name" content="{{ block('title') }}"/>
+            <meta property="og:url" content="{{ app.request.schemeAndHttpHost }}"/>
+            <meta property="og:description" content="{{ block('description') }}"/>
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content="{{ block('open_graph_image') }}"/>
+        {% endblock %}
+
+        {% block head_script %}
+            {% if not app.debug %}
+                <script src="{{ asset('build/modernizr.js') }}"></script>
+            {% endif %}
+        {% endblock %}
+
+        {% block head_bottom %}{% endblock %}
+    </head>
+{% endblock %}
+
+{% block body_tag %}
+<body>
+{% endblock %}
+
+{% block body %}
+    {% block cookies %}
+        {% include 'components/cookies.html.twig' %}
+    {% endblock %}
+
+    {% block deprecation_notice %}{% endblock %}
+
+    {% block header %}{% endblock %}
+
+    <main class="main">
+        {% block content %}{% endblock %}
+
+        {% block footer %}{% endblock %}
+    </main>
+
+    {% block body_end_before_js %}{% endblock %}
+
+    {% block foot_script %}
+        {% webpack_entry_js 'app' %}
+    {% endblock %}
+{% endblock %}
+
+{% block body_end %}{% endblock %}
+</body>
+</html>

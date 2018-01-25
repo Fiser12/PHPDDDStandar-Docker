@@ -1,0 +1,85 @@
+{
+    "require": {
+        "php": "^7.1",
+        "ext-iconv": "*",
+        "lin3s/distribution": "^4.2",
+        "smart-core/accelerator-cache-bundle": "^1.2",
+        "symfony/asset": "^4.0",
+        "symfony/console": "^4.0",
+        "symfony/dotenv": "^4.0",
+        "symfony/flex": "^1.0",
+        "symfony/framework-bundle": "^4.0",
+        "symfony/lts": "^4@dev",
+        "symfony/monolog-bundle": "^3.1",
+        "symfony/twig-bundle": "^4.0",
+        "symfony/web-server-bundle": "^4.0",
+        "symfony/yaml": "^4.0"
+    },
+    "require-dev": {
+        "lin3s/cs": "^0.7.3",
+        "phpspec/phpspec": "^4.3"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "lin3scs-scripts": [
+            "LIN3S\\CS\\Composer\\Hooks::buildDistFile",
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "LIN3S\\CS\\Composer\\Hooks::addHooks",
+            "LIN3S\\CS\\Composer\\Hooks::addFiles"
+        ],
+        "cs": [
+            "php-cs-fixer fix --config-file=.php_cs",
+            "php-cs-fixer fix --config-file=.phpspec_cs"
+        ],
+        "test": "phpspec run",
+        "post-install-cmd": [
+            "src/Infrastructure/Ui/Cli/Symfony/console cache:clear",
+            "src/Infrastructure/Ui/Cli/Symfony/console assets:install src/Infrastructure/Ui/Http/Symfony --symlink --relative --symlink --relative",
+            "@lin3scs-scripts"
+        ],
+        "post-update-cmd": [
+            "src/Infrastructure/Ui/Cli/Symfony/console cache:clear",
+            "src/Infrastructure/Ui/Cli/Symfony/console assets:install src/Infrastructure/Ui/Http/Symfony --symlink --relative --symlink --relative",
+            "@lin3scs-scripts"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "CompositeUi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "extra": {
+        "incenteev-parameters": [
+            {
+                "file": ".lin3s_cs.yml",
+                "dist-file": ".lin3s_cs.yml.dist"
+            }
+        ],
+        "scripts-dev": {
+            "post-install-cmd": [
+                "@lin3scs-scripts"
+            ],
+            "post-update-cmd": [
+                "@lin3scs-scripts"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

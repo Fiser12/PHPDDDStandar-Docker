@@ -1,0 +1,36 @@
+// This file is part of the Rome Reports project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+
+@import '../../node_modules/lin3s-front-foundation/dist/scss/_base/reset';
+@import '../../node_modules/lin3s-front-foundation/dist/scss/_base/common';
+
+@import '_definitions/animations';
+@import '_definitions/fonts';
+
+@import 'atoms/button';
+@import 'atoms/form-checkbox';
+@import 'atoms/form-error';
+@import 'atoms/form-input';
+@import 'atoms/form-label';
+@import 'atoms/form-select';
+
+@import 'components/cookies';
+@import 'components/form-group';
+@import 'components/row';
+
+@import 'compositions/form';
+
+@import 'layouts/aside';
+@import 'layouts/footer';
+@import 'layouts/header';
+@import 'layouts/main';
+
+@import 'pages/error404';
+@import 'pages/home';

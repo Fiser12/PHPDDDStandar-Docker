@@ -1,0 +1,23 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+framework:
+    secret: '%env(APP_SECRET)%'
+    assets: ~
+    #default_locale: en
+    #csrf_protection: ~
+    #http_method_override: true
+
+    # uncomment this entire section to enable sessions
+    #session:
+    #    # With this config, PHP's native session handling is used
+    #    handler_id: ~
+
+    #esi: ~
+    #fragments: ~
+    php_errors:
+        log: true

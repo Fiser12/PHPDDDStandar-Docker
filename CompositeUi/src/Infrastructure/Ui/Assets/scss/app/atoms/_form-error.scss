@@ -1,0 +1,23 @@
+// This file is part of the Php DDD Standard project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+
+@import './../_definitions/animations';
+@import './../_variables/colors';
+@import './../_variables/typography';
+
+// $form-error-background-color: transparent;
+// $form-error-text-color: $color-primary-faded;
+// $form-error-border-color: transparent;
+// $form-error-animation: $animation-vertical-node-in;
+// $form-error-font-family: $font-family-secondary;
+// $form-error-font-size: $font-size-14;
+// $form-error-font-weight: $font-weight-primary-regular;
+// $form-error-line-height: $line-height-for-font-size-14;
+
+@import './../../../node_modules/lin3s-front-foundation/dist/scss/ui/atoms/form-error';

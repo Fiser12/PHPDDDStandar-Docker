@@ -1,0 +1,39 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+/.editorconfig
+.env
+/.lin3s_cs.yml
+/.php_cs*
+/.phpspec_cs*
+/.web-server-pid
+/composer.phar
+/parameters.yml
+/src/Infrastructure/Ui/Assets/.eslintrc.js
+/src/Infrastructure/Ui/Assets/.stylelintrc.js
+/src/Infrastructure/Ui/Assets/node_modules
+/src/Infrastructure/Ui/Assets/build
+!/src/Infrastructure/Ui/Assets/build/.gitkeep
+/src/Infrastructure/Ui/Http/Symfony/.htaccess
+/src/Infrastructure/Ui/Http/Symfony/bundles
+/src/Infrastructure/Ui/Http/Symfony/robots.txt
+/src/Infrastructure/Ui/manifest.json
+/var/bootstrap.php.cache
+/var/cache/*
+!var/cache/dev/.gitkeep
+!var/cache/prod/.gitkeep
+/var/log/*
+!var/log/.gitkeep
+/var/sessions/*
+!var/sessions/dev/.gitkeep
+!var/sessions/prod/.gitkeep
+/vendor
+
+###> friendsofphp/php-cs-fixer ###
+.php_cs
+.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
