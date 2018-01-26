@@ -77,7 +77,9 @@ vendor-clear:
 
 clear-all:
 	rm -rf App/vendor
+	rm -rf App/var/cache
 	rm -rf CompositeUi/vendor
+	rm -rf CompositeUi/var/cache
 	rm -rf CompositeUi/src/Infrastructure/Ui/Assets/node_modules
 	rm -rf CompositeUi/src/Infrastructure/Ui/Assets/build
 	rm -f App/.lin3s_cs.yml

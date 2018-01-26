@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
  
 This project is fully Dockerized and orchestrated with Docker Compose. 
  
-##How to install
+## How to install
 
 #### Mac OS
 
@@ -41,7 +41,8 @@ Install Docker Compose
  
 For deploy in dev or prod mode the project have a makefile with the needed commands.
 
-> make deploy
+> make deploy ENV=dev
+
 > make deploy ENV=prod
 
 ## The objetives of this base project are this:
