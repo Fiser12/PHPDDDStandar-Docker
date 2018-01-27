@@ -80,11 +80,12 @@ vendor-clear:
 
 clear-all:
 	rm -rf App/vendor
-	rm -rf App/var/cache
+	rm -rf App/var/cache/dev/*
+	rm -rf App/var/cache/prod/*
 	rm -rf CompositeUi/vendor
-	rm -rf CompositeUi/var/cache
+	rm -rf CompositeUi/var/cache/dev/*
+	rm -rf CompositeUi/var/cache/prod/*
 	rm -rf CompositeUi/src/Infrastructure/Ui/Assets/node_modules
-	rm -rf CompositeUi/src/Infrastructure/Ui/Assets/build
 	rm -f App/.lin3s_cs.yml
 	rm -f App/parameters.yml
 	rm -f App/src/App/Infrastructure/Ui/Http/Symfony/.htaccess

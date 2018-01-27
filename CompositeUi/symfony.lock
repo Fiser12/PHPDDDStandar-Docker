@@ -20,6 +20,9 @@
             "ref": "cb4152ebcadbe620ea2261da1a1c5a9b8cea7672"
         }
     },
+    "doctrine/instantiator": {
+        "version": "1.1.0"
+    },
     "doctrine/lexer": {
         "version": "v1.0.1"
     },
@@ -59,8 +62,26 @@
     "php-cs-fixer/diff": {
         "version": "v1.2.0"
     },
+    "phpdocumentor/reflection-common": {
+        "version": "1.0.1"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "4.3.0"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "0.4.0"
+    },
     "phpmd/phpmd": {
         "version": "2.6.0"
+    },
+    "phpspec/php-diff": {
+        "version": "v1.1.0"
+    },
+    "phpspec/phpspec": {
+        "version": "4.3.0"
+    },
+    "phpspec/prophecy": {
+        "version": "1.7.3"
     },
     "pimple/pimple": {
         "version": "v3.2.3"
@@ -76,6 +97,18 @@
     },
     "psr/simple-cache": {
         "version": "1.0.0"
+    },
+    "sebastian/comparator": {
+        "version": "2.1.2"
+    },
+    "sebastian/diff": {
+        "version": "2.0.1"
+    },
+    "sebastian/exporter": {
+        "version": "3.1.0"
+    },
+    "sebastian/recursion-context": {
+        "version": "3.0.0"
     },
     "sensio/distribution-bundle": {
         "version": "v5.0.21"
@@ -220,5 +253,8 @@
     },
     "twig/twig": {
         "version": "v2.4.4"
+    },
+    "webmozart/assert": {
+        "version": "1.2.0"
     }
 }

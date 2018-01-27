@@ -16,24 +16,27 @@
 /src/Infrastructure/Ui/Assets/.eslintrc.js
 /src/Infrastructure/Ui/Assets/.stylelintrc.js
 /src/Infrastructure/Ui/Assets/node_modules
-/src/Infrastructure/Ui/Assets/build
-!/src/Infrastructure/Ui/Assets/build/.gitkeep
 /src/Infrastructure/Ui/Http/Symfony/.htaccess
 /src/Infrastructure/Ui/Http/Symfony/bundles
 /src/Infrastructure/Ui/Http/Symfony/robots.txt
 /src/Infrastructure/Ui/manifest.json
 /var/bootstrap.php.cache
-/var/cache/*
-!var/cache/dev/.gitkeep
-!var/cache/prod/.gitkeep
-/var/log/*
-!var/log/.gitkeep
-/var/sessions/*
-!var/sessions/dev/.gitkeep
-!var/sessions/prod/.gitkeep
 /vendor
 
 ###> friendsofphp/php-cs-fixer ###
 .php_cs
 .php_cs.cache
 ###< friendsofphp/php-cs-fixer ###
+
+/var/sessions/dev/*
+!var/sessions/dev/.gitkeep
+/var/sessions/prod/*
+!var/sessions/prod/.gitkeep
+/var/log/*
+!var/log/.gitkeep
+/var/cache/dev/*
+!var/cache/dev/.gitkeep
+/var/cache/prod/*
+!var/cache/prod/.gitkeep
+/src/Infrastructure/Ui/Assets/build/*
+!src/Infrastructure/Ui/Assets/build/.gitkeep
