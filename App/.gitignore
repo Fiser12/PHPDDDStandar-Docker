@@ -32,8 +32,5 @@ src/App/Infrastructure/Ui/Assets/.stylelintrc.js
 /var/sessions/prod/*
 !var/sessions/prod/.gitkeep
 /var/logs/*
-!var/logs/.gitkeep
 /var/cache/dev/*
-!var/cache/dev/.gitkeep
 /var/cache/prod/*
-!var/cache/prod/.gitkeep
