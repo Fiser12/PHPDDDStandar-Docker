@@ -4,6 +4,7 @@
         "ext-iconv": "*",
         "incenteev/composer-parameter-handler": "^2.1",
         "lin3s/distribution": "^4.2",
+        "sensio/distribution-bundle": "^5.0",
         "smart-core/accelerator-cache-bundle": "^1.2",
         "symfony/asset": "^4.0",
         "symfony/console": "^4.0",
@@ -27,6 +28,13 @@
         "sort-packages": true
     },
     "scripts": {
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
         "lin3scs-scripts": [
             "LIN3S\\CS\\Composer\\Hooks::buildDistFile",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -39,15 +47,14 @@
         ],
         "test": "phpspec run",
         "post-install-cmd": [
-            "src/Infrastructure/Ui/Cli/Symfony/console cache:clear",
-            "src/Infrastructure/Ui/Cli/Symfony/console assets:install src/Infrastructure/Ui/Http/Symfony --symlink --relative --symlink --relative",
-            "@lin3scs-scripts"
+            "@symfony-scripts"
         ],
         "post-update-cmd": [
-            "src/Infrastructure/Ui/Cli/Symfony/console cache:clear",
-            "src/Infrastructure/Ui/Cli/Symfony/console assets:install src/Infrastructure/Ui/Http/Symfony --symlink --relative --symlink --relative",
-            "@lin3scs-scripts"
-        ]
+            "@symfony-scripts"
+        ],
+        "auto-scripts": {
+            "security-checker security:check": "script"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -66,6 +73,12 @@
         "symfony/polyfill-php56": "*"
     },
     "extra": {
+        "symfony-app-dir": "src/Infrastructure/Symfony/Framework",
+        "symfony-bin-dir": "src/Infrastructure/Ui/Cli/Symfony/",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "src/Infrastructure/Ui/Http/Symfony/",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
         "incenteev-parameters": [
             {
                 "file": ".lin3s_cs.yml",
