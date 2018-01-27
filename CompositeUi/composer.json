@@ -3,6 +3,7 @@
         "php": "^7.1",
         "ext-iconv": "*",
         "incenteev/composer-parameter-handler": "^2.1",
+        "lin3s/cs": "^0.7.4",
         "lin3s/distribution": "^4.2",
         "sensio/distribution-bundle": "^5.0",
         "smart-core/accelerator-cache-bundle": "^1.2",
@@ -18,7 +19,6 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "lin3s/cs": "^0.7.3",
         "phpspec/phpspec": "^4.3"
     },
     "config": {
@@ -33,7 +33,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "LIN3S\\CS\\Composer\\Hooks::buildDistFile",
+            "LIN3S\\CS\\Composer\\Hooks::addHooks",
+            "LIN3S\\CS\\Composer\\Hooks::addFiles"
         ],
         "lin3scs-scripts": [
             "LIN3S\\CS\\Composer\\Hooks::buildDistFile",

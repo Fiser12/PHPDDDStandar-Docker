@@ -6,9 +6,10 @@ COMMAND ?= debug:container
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 ENV_COMPOSER = dev
-
+ENV_YARN = ""
 ifeq ($(ENV),prod)
  ENV_COMPOSER = no-dev
+ ENV_YARN = :prod
 endif
 
 #COMPOSER COMMANDS
@@ -61,7 +62,7 @@ deploy:
             $(MAKE) -f $(THIS_FILE) composer-install-all ENV=$(ENV) && \
             $(MAKE) -f $(THIS_FILE) create-database ENV=$(ENV) && \
             $(MAKE) -f $(THIS_FILE) migrations ENV=$(ENV) && \
-            docker-compose -f Docker/docker-compose.$(ENV).yaml exec app bash -c "cd /app/CompositeUi/src/Infrastructure/Ui/Assets && yarn install && yarn build"
+            $(MAKE) -f $(THIS_FILE) yarn-install-and-build ENV=$(ENV)
 
 composer-install-all:
 	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec app bash -c "composer install -d=/app/App --$(ENV_COMPOSER)" && \
@@ -69,6 +70,9 @@ composer-install-all:
 
 docker-connect:
 	@docker exec -t -i $(IMAGE) /bin/bash
+
+yarn-install-and-build:
+	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec app bash -c "cd /app/CompositeUi/src/Infrastructure/Ui/Assets && yarn install && yarn build$(YARN_COMPOSER)"
 
 #PREPARATION OF LOCAL ENVIRONMENT
 vendor-clear:
