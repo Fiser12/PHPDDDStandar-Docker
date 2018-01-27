@@ -56,7 +56,6 @@ start-hard:
 deploy:
 	@rsync --ignore-existing Docker/.env.dist Docker/.env
 	        docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
-            $(MAKE) -f $(THIS_FILE) clear-all ENV=$(ENV) && \
         	docker-compose -f Docker/docker-compose.$(ENV).yaml build --pull --no-cache && \
             docker-compose -f Docker/docker-compose.$(ENV).yaml up -d --remove-orphans && \
             $(MAKE) -f $(THIS_FILE) composer-install-all ENV=$(ENV) && \

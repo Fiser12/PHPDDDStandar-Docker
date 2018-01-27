@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8c3bae3271d8e91a9280f6a7718ba53",
+    "content-hash": "7021ba83c725db66529a967118ce82e1",
     "packages": [
+        {
+            "name": "derrabus/composer-parameter-handler",
+            "version": "v2.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/derrabus/ParameterHandler.git",
+                "reference": "ebebba11d125767028ed745addb7f6636331fb50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/derrabus/ParameterHandler/zipball/ebebba11d125767028ed745addb7f6636331fb50",
+                "reference": "ebebba11d125767028ed745addb7f6636331fb50",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/yaml": "^2.3 || ^3.0 || ^4.0"
+            },
+            "replace": {
+                "incenteev/composer-parameter-handler": "2.1.2"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.6",
+                "symfony/filesystem": "^2.2 || ^3.0 || ^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Incenteev\\ParameterHandler\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Composer script handling your ignored parameter file",
+            "homepage": "https://github.com/derrabus/ParameterHandler",
+            "keywords": [
+                "parameters management"
+            ],
+            "time": "2017-12-28T11:57:51+00:00"
+        },
         {
             "name": "fullpipe/twig-webpack-extension",
             "version": "v2.0.1",
@@ -2136,60 +2190,6 @@
                 "versioning"
             ],
             "time": "2016-08-30T16:08:34+00:00"
-        },
-        {
-            "name": "derrabus/composer-parameter-handler",
-            "version": "v2.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/derrabus/ParameterHandler.git",
-                "reference": "ebebba11d125767028ed745addb7f6636331fb50"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/derrabus/ParameterHandler/zipball/ebebba11d125767028ed745addb7f6636331fb50",
-                "reference": "ebebba11d125767028ed745addb7f6636331fb50",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/yaml": "^2.3 || ^3.0 || ^4.0"
-            },
-            "replace": {
-                "incenteev/composer-parameter-handler": "2.1.2"
-            },
-            "require-dev": {
-                "composer/composer": "^1.0",
-                "phpunit/phpunit": "^4.8.35 || ^5.6",
-                "symfony/filesystem": "^2.2 || ^3.0 || ^4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Incenteev\\ParameterHandler\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                }
-            ],
-            "description": "Composer script handling your ignored parameter file",
-            "homepage": "https://github.com/derrabus/ParameterHandler",
-            "keywords": [
-                "parameters management"
-            ],
-            "time": "2017-12-28T11:57:51+00:00"
         },
         {
             "name": "doctrine/annotations",

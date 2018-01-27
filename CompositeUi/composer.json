@@ -2,6 +2,7 @@
     "require": {
         "php": "^7.1",
         "ext-iconv": "*",
+        "incenteev/composer-parameter-handler": "^2.1",
         "lin3s/distribution": "^4.2",
         "smart-core/accelerator-cache-bundle": "^1.2",
         "symfony/asset": "^4.0",

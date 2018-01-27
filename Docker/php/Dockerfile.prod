@@ -93,6 +93,6 @@ RUN docker-php-ext-configure intl \
 
 RUN usermod -u 1000 www-data
 
-ADD --chown=ubuntu-user:ubuntu-group . /app
+COPY --chown=ubuntu-user:ubuntu-group . /app
 RUN chmod -R 777 /app
 CMD php-fpm -F
