@@ -39,6 +39,10 @@ Install Docker Compose
 
 > sudo pip install docker-compose
 
+> sudo groupadd docker
+
+> sudo usermod -aG docker $USER
+
 ## Prepare the environment: 
  
 For deploy in dev or prod mode the project have a makefile with the needed commands.
