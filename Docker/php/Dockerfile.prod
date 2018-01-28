@@ -1,7 +1,5 @@
 FROM php:7.1-fpm
 
-RUN groupadd -r ubuntu-group && useradd --no-log-init -r -g ubuntu-group ubuntu-user
-
 #NODE ENVIRONMENT PREPARED
 RUN set -ex \
   && for key in \
@@ -91,8 +89,8 @@ RUN "date"
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_mysql opcache intl
 
+COPY --chown=www-data:www-data . /app
+RUN chmod -R 777 /app
 RUN usermod -u 1000 www-data
 
-COPY --chown=ubuntu-user:ubuntu-group . /app
-RUN chmod -R 777 /app
 CMD php-fpm -F

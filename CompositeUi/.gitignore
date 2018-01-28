@@ -22,6 +22,7 @@
 /src/Infrastructure/Ui/manifest.json
 /var/bootstrap.php.cache
 /vendor
+/config/routes/annotations.yaml
 
 ###> friendsofphp/php-cs-fixer ###
 .php_cs
