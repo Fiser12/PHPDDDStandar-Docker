@@ -34,9 +34,7 @@
 !var/sessions/prod/.gitkeep
 /var/log/*
 !var/log/.gitkeep
-/var/cache/dev/*
-!var/cache/dev/.gitkeep
-/var/cache/prod/*
-!var/cache/prod/.gitkeep
+/var/cache/*
+!var/cache/.gitkeep
 /src/Infrastructure/Ui/Assets/build/*
 !src/Infrastructure/Ui/Assets/build/.gitkeep
