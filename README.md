@@ -38,6 +38,7 @@ Install Docker Compose
 > sudo apt-get -y install python-pip
 
 > pip install 'docker==2.6.1'
+
 This version is necesary because in the 2.7 fails if you have symbolic links broken, this are generated in the docker image and in the volume you see a symbolic link broke.
 
 > sudo groupadd docker
