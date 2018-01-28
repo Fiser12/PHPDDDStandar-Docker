@@ -32,7 +32,7 @@ src/App/Infrastructure/Ui/Assets/.stylelintrc.js
 /var/sessions/prod/*
 !var/sessions/prod/.gitkeep
 /var/logs/*
-/var/cache/*
+!var/logs/.gitkeep
 /var/cache/*
 !var/cache/.gitkeep
 
