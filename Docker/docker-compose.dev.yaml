@@ -29,7 +29,7 @@ services:
         env: dev
 
     volumes:
-      - ../:/app-dev
+      - ../:/app
     networks:
       crv_dev_network:
         aliases:
@@ -46,8 +46,8 @@ services:
       - "8080:8080"
       - "8081:8081"
     volumes:
-      - ../.:/app-dev
-      - ./volumes/log/Nginx:/var/log/nginx
+      - ../.:/app
+      - ./volumes/log/dev/Nginx:/var/log/nginx
     networks:
       crv_dev_network:
         aliases:
