@@ -9,5 +9,6 @@
 /volumes/mysql
 /volumes/*
 !/volumes/.gitkeep
-!/volumes/mysql/conf/mysql.conf
+!volumes/mysql/prod/conf/mysql.conf
+!volumes/mysql/dev/conf/mysql.conf
 /.env

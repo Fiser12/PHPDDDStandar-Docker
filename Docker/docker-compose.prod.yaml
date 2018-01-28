@@ -1,48 +1,48 @@
 version: '3.2'
 
 networks:
-  crv_dev_network:
+  crv_prod_network:
     driver: bridge
 
 services:
-  db:
-    container_name: mysql
+  db-prod:
+    container_name: mysql-prod
     image: mysql:5.7.17
     env_file:
       - ./.env
     volumes:
-      - ./volumes/mysql/database:/var/lib/mysql
-      - ./volumes/mysql/conf:/etc/mysql/conf.d
+      - ./volumes/mysql/prod/database:/var/lib/mysql
+      - ./volumes/mysql/prod/conf:/etc/mysql/conf.d
     networks:
-      crv_dev_network:
+      crv_prod_network:
         aliases:
           - mysql
     ports:
       - "3306:3306"
 
-  app:
-    container_name: symfony-app
+  app-prod:
+    container_name: symfony-app-prod
     build:
       context: ../
       dockerfile: ./Docker/php/Dockerfile.prod
       args:
-        env: dev
+        env: prod
 
     volumes:
       - app_data:/app:rw
-      - ./volumes/log/App:/app/App/var/logs
-      - ./volumes/cache/App:/app/App/var/cache
-      - ./volumes/log/CompositeUi:/app/CompositeUi/var/log
-      - ./volumes/cache/CompositeUi:/app/CompositeUi/var/cache
+      - ./volumes/log/prod/App:/app/App/var/logs
+      - ./volumes/cache/prod/App:/app/App/var/cache
+      - ./volumes/log/prod/CompositeUi:/app/CompositeUi/var/log
+      - ./volumes/cache/prod/CompositeUi:/app/CompositeUi/var/cache
     networks:
-      crv_dev_network:
+      crv_prod_network:
         aliases:
           - php
     env_file:
       - ./.env
 
-  nginx:
-    container_name: nginx-server
+  nginx-prod:
+    container_name: nginx-server-prod
     build:
       context: nginx
       dockerfile: Dockerfile.prod
@@ -51,12 +51,12 @@ services:
       - "81:81"
     volumes:
       - app_data:/app:rw
-      - ./volumes/log/Nginx:/var/log/nginx
+      - ./volumes/log/prod/Nginx:/var/log/nginx
     depends_on:
-      - app
+      - app-prod
 
     networks:
-      crv_dev_network:
+      crv_prod_network:
         aliases:
           - nginx
 
