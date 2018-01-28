@@ -47,9 +47,9 @@ Install Docker Compose
  
 For deploy in dev or prod mode the project have a makefile with the needed commands.
 
-> make deploy ENV=dev
+> make build ENV=dev
 
-> make deploy ENV=prod
+> make build ENV=prod
 
 ## The objetives of this base project are this:
 

@@ -34,6 +34,9 @@ cache-clear:
 symfony-console:
 	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec $(SERVICE) bash -c "php /app/$(DIR)/etc/bin/symfony-console $(COMMAND)"
 
+yarn-install-and-build:
+	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec app-$(ENV) bash -c "cd /app/CompositeUi/src/Infrastructure/Ui/Assets && yarn install && yarn build$(YARN_COMPOSER)"
+
 #DOCKER COMMANDS
 docker-compose-exec:
 	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec $(SERVICE) bash -c "$(COMMAND)"
@@ -45,15 +48,7 @@ start:
 	@docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
         	docker-compose -f Docker/docker-compose.$(ENV).yaml up -d
 
-start-hard:
-	@rsync --ignore-existing Docker/.env.dist Docker/.env
-	        docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
-            docker-compose -f Docker/docker-compose.$(ENV).yaml up -d --remove-orphans && \
-            $(MAKE) -f $(THIS_FILE) composer-install-all ENV=$(ENV) && \
-            $(MAKE) -f $(THIS_FILE) create-database ENV=$(ENV) && \
-            $(MAKE) -f $(THIS_FILE) migrations ENV=$(ENV)
-
-deploy:
+build:
 	@rsync --ignore-existing Docker/.env.dist Docker/.env
 	        docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
         	docker-compose -f Docker/docker-compose.$(ENV).yaml build --pull --no-cache && \
@@ -69,33 +64,3 @@ composer-install-all:
 
 docker-connect:
 	@docker exec -t -i $(IMAGE) /bin/bash
-
-yarn-install-and-build:
-	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec app-$(ENV) bash -c "cd /app/CompositeUi/src/Infrastructure/Ui/Assets && yarn install && yarn build$(YARN_COMPOSER)"
-
-#PREPARATION OF LOCAL ENVIRONMENT
-vendor-clear:
-	@rm -rf $(DIR)/vendor
-
-clear-all:
-	rm -rf App/vendor
-	rm -rf App/var/cache/dev/*
-	rm -rf App/var/cache/prod/*
-	rm -rf CompositeUi/vendor
-	rm -rf CompositeUi/var/cache/dev/*
-	rm -rf CompositeUi/var/cache/prod/*
-	rm -rf CompositeUi/src/Infrastructure/Ui/Assets/node_modules
-	rm -f App/.lin3s_cs.yml
-	rm -f App/parameters.yml
-	rm -f App/src/App/Infrastructure/Ui/Http/Symfony/.htaccess
-	rm -f App/src/App/Infrastructure/Ui/Http/Symfony/robots.txt
-	rm -f CompositeUi/.env
-	rm -f CompositeUi/.lin3s_cs.yml
-	rm -f CompositeUi/src/Infrastructure/Ui/Http/Symfony/.htaccess
-	rm -f CompositeUi/src/Infrastructure/Ui/Http/Symfony/robots.txt
-
-copy-elements:
-	cp App/src/App/Infrastructure/Ui/Http/Symfony/.htaccess.dist App/src/App/Infrastructure/Ui/Http/Symfony/.htaccess
-	cp App/src/App/Infrastructure/Ui/Http/Symfony/robots.txt.dist App/src/App/Infrastructure/Ui/Http/Symfony/robots.txt
-	cp CompositeUi/src/Infrastructure/Ui/Http/Symfony/.htaccess.dist CompositeUi/src/Infrastructure/Ui/Http/Symfony/.htaccess
-	cp CompositeUi/src/Infrastructure/Ui/Http/Symfony/robots.txt.dist CompositeUi/src/Infrastructure/Ui/Http/Symfony/robots.txt

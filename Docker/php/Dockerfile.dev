@@ -1,7 +1,5 @@
 FROM php:7.1-fpm
 
-RUN groupadd -r ubuntu-group && useradd --no-log-init -r -g ubuntu-group ubuntu-user
-
 #NODE ENVIRONMENT PREPARED
 RUN set -ex \
   && for key in \
