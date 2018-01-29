@@ -21,7 +21,8 @@
 /App/var/logs/*
 !App/var/logs/.gitkeep
 /App/var/sessions/*
-!App/var/sessions/.gitkeep
+!App/var/sessions/dev/.gitkeep
+!App/var/sessions/prod/.gitkeep
 /App/vendor
 /App/src/App/Infrastructure/Ui/Assets/.eslintrc.js
 /App/src/App/Infrastructure/Ui/Assets/.stylelintrc.js

@@ -89,8 +89,9 @@ RUN "date"
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_mysql opcache intl
 
-COPY --chown=www-data:www-data . /app
+COPY . /app
+RUN sudo chown -R www-data:www-data /app
 
-RUN usermod -u 1000 www-data
+RUN chmod -R 777 /app
 
 CMD php-fpm -F
