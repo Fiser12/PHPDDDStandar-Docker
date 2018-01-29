@@ -24,7 +24,7 @@ services:
     container_name: symfony-app-dev
     build:
       context: ../
-      dockerfile: ./Docker/php/Dockerfile.dev
+      dockerfile: ./Docker/php/dev/Dockerfile
       args:
         env: dev
 
@@ -40,8 +40,8 @@ services:
   nginx-dev:
     container_name: nginx-server-dev
     build:
-      context: nginx
-      dockerfile: Dockerfile.dev
+      context: nginx/dev
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
       - "8081:8081"

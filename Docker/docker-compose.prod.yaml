@@ -24,7 +24,7 @@ services:
     container_name: symfony-app-prod
     build:
       context: ../
-      dockerfile: ./Docker/php/Dockerfile.prod
+      dockerfile: ./Docker/php/prod/Dockerfile
       args:
         env: prod
 
@@ -44,8 +44,8 @@ services:
   nginx-prod:
     container_name: nginx-server-prod
     build:
-      context: nginx
-      dockerfile: Dockerfile.prod
+      context: nginx/prod
+      dockerfile: Dockerfile
     ports:
       - "80:80"
       - "81:81"
