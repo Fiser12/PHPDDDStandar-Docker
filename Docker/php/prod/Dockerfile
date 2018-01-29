@@ -90,7 +90,7 @@ RUN docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_mysql opcache intl
 
 COPY . /app
-RUN sudo chown -R www-data:www-data /app
+RUN chown -R www-data:www-data /app
 
 RUN chmod -R 777 /app
 
