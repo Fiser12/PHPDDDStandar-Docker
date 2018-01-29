@@ -90,7 +90,7 @@ RUN docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_mysql opcache intl
 
 COPY --chown=www-data:www-data . /app
-RUN chmod -R 777 /app
+
 RUN usermod -u 1000 www-data
 
 CMD php-fpm -F
