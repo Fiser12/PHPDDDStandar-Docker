@@ -22,11 +22,7 @@ services:
 
   app-prod:
     container_name: symfony-app-prod
-    build:
-      context: ../
-      dockerfile: ./Docker/php/prod/Dockerfile
-      args:
-        env: prod
+    image: fiser/phpdddstandar-symfony-app:latest
 
     volumes:
       - app_data:/app:rw
@@ -43,9 +39,7 @@ services:
 
   nginx-prod:
     container_name: nginx-server-prod
-    build:
-      context: nginx/prod
-      dockerfile: Dockerfile
+    image: fiser/phpdddstandar-nginx:latest
     ports:
       - "80:80"
       - "81:81"
