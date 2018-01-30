@@ -54,10 +54,8 @@ build:
 	        docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
         	docker-compose -f Docker/docker-compose.$(ENV).yaml build --pull --no-cache && \
             docker-compose -f Docker/docker-compose.$(ENV).yaml up -d && \
-            $(MAKE) -f $(THIS_FILE) composer-install-all ENV=$(ENV) && \
             $(MAKE) -f $(THIS_FILE) create-database ENV=$(ENV) && \
-            $(MAKE) -f $(THIS_FILE) migrations ENV=$(ENV) && \
-            $(MAKE) -f $(THIS_FILE) yarn-install-and-build ENV=$(ENV)
+            $(MAKE) -f $(THIS_FILE) migrations ENV=$(ENV)
 
 composer-install-all:
 	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec app-$(ENV) bash -c "composer install -d=/app/App --$(ENV_COMPOSER)" && \

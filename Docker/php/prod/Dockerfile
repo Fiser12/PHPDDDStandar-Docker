@@ -93,5 +93,7 @@ ADD . /app
 RUN chown -R www-data:www-data /app
 
 RUN chmod -R 777 /app
-
+RUN composer install -d=/app/App --no-dev --no-interaction
+RUN composer install -d=/app/CompositeUi --no-dev --no-interaction
+RUN cd /app/CompositeUi/src/Infrastructure/Ui/Assets && yarn install && yarn build:prod
 CMD php-fpm -F
