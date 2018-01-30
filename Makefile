@@ -49,7 +49,8 @@ start:
         	docker-compose -f Docker/docker-compose.$(ENV).yaml up -d
 
 build:
-	@rsync --ignore-existing Docker/.env.dist Docker/.env
+	@rsync --ignore-existing Docker/.env.dist Docker/.env && \
+	        chmod -R 777 App/var CompositeUi/var && \
 	        docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
         	docker-compose -f Docker/docker-compose.$(ENV).yaml build --pull --no-cache && \
             docker-compose -f Docker/docker-compose.$(ENV).yaml up -d && \
