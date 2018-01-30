@@ -20,8 +20,8 @@ services:
           - mysql
     ports:
 # For locale image deploy
-#      - "3306:3306"
-      - "3306"
+      - "3306:3306"
+#      - "3306"
 
   app-prod:
     container_name: symfony-app-prod
@@ -55,10 +55,10 @@ services:
     restart: always
     ports:
 # For locale image deploy
-#      - "80:80"
-#      - "81:81"
-      - "80"
-      - "81"
+      - "80:80"
+      - "81:81"
+#      - "80"
+#      - "81"
     volumes:
       - app_data:/app:rw
       - ./volumes/log/prod/Nginx:/var/log/nginx
