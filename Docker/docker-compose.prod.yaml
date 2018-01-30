@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.0'
 
 networks:
   crv_prod_network:
@@ -8,6 +8,7 @@ services:
   db-prod:
     container_name: mysql-prod
     image: mysql:5.7.17
+    restart: always
     env_file:
       - ./.env
     volumes:
@@ -18,12 +19,19 @@ services:
         aliases:
           - mysql
     ports:
-      - "3306:3306"
+# For locale image deploy
+#      - "3306:3306"
+      - "3306"
 
   app-prod:
     container_name: symfony-app-prod
     image: fiser/phpdddstandar-symfony-app:latest
+# For locale image deploy
+#    build:
+#      context: ../
+#      dockerfile: ./Docker/php/prod/Dockerfile
 
+    restart: always
     volumes:
       - app_data:/app:rw
       - ./volumes/log/prod/App:/app/App/var/logs
@@ -40,9 +48,17 @@ services:
   nginx-prod:
     container_name: nginx-server-prod
     image: fiser/phpdddstandar-nginx:latest
+# For locale image deploy
+#    build:
+#      context: nginx/prod
+#      dockerfile: Dockerfile
+    restart: always
     ports:
-      - "80:80"
-      - "81:81"
+# For locale image deploy
+#      - "80:80"
+#      - "81:81"
+      - "80"
+      - "81"
     volumes:
       - app_data:/app:rw
       - ./volumes/log/prod/Nginx:/var/log/nginx
