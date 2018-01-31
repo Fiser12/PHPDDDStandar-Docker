@@ -27,6 +27,10 @@
 /App/src/App/Infrastructure/Ui/Assets/.eslintrc.js
 /App/src/App/Infrastructure/Ui/Assets/.stylelintrc.js
 /Docker/*
+!Docker/php/.compositeui-env.dist
+!Docker/php/app-parameters.yml.dist
+!Docker/php/docker-entrypoint.sh
+
 .git
 .gitignore
 Makefile
