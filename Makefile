@@ -53,7 +53,9 @@ build:
 	        chmod -R 777 App/var CompositeUi/var && \
 	        docker-compose -f Docker/docker-compose.$(ENV).yaml down && \
         	docker-compose -f Docker/docker-compose.$(ENV).yaml build --pull --no-cache && \
-            docker-compose -f Docker/docker-compose.$(ENV).yaml up -d
+            docker-compose -f Docker/docker-compose.$(ENV).yaml up -d && \
+            $(MAKE) -f $(THIS_FILE) create-database ENV=$(ENV) && \
+            $(MAKE) -f $(THIS_FILE) migrations ENV=$(ENV)
 
 composer-install-all:
 	@docker-compose -f Docker/docker-compose.$(ENV).yaml exec app-$(ENV) bash -c "composer install -d=/app/App --$(ENV_COMPOSER)" && \
