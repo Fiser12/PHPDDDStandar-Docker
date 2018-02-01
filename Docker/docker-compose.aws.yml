@@ -1,0 +1,73 @@
+#THIS IS A SPECIFIC VERSION FOR AUTODEPLOY IN SERVERS
+
+version: '3'
+services:
+  db-prod:
+    image: 'mysql:5.7.17'
+    restart: always
+    volumes:
+      - './volumes/mysql/prod/database:/var/lib/mysql'
+      - './volumes/mysql/prod/conf:/etc/mysql/conf.d'
+    networks:
+      crv_prod_network:
+        aliases:
+          - mysql
+    ports:
+      - '3306'
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=db_name
+      - SECRET_KEY=HOWIFHBAVAFIOF672FNDKFGAJjJjeq2nN
+      - DB_USER=admin
+      - DB_PASSWORD=H5UAc6VILJL0
+      - MYSQL_ROOT_PASSWORD=H5UAc6VILJL0
+  app-prod:
+    image: 'fiser/phpdddstandar-symfony-app:latest'
+    restart: always
+    volumes:
+      - 'app_data:/app:rw'
+    networks:
+      crv_prod_network:
+        aliases:
+          - php
+    environment:
+      - SECRET_KEY_APP=HOWIFHBAVAFIOF672FNDKFGAJjJjeq2nN
+      - SECRET_KEY_COMPOSITE_UI=HOWIFHBAVAFIOF672FNDKFGAJjJjeq2nN
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=db_name
+      - DB_USER=admin
+      - DB_PASSWORD=H5UAc6VILJL0
+      - MYSQL_ROOT_PASSWORD=H5UAc6VILJL0
+      - MYSQL_DATABASE_SERVER_VERSION=5.7
+      - MAILER_TRANSPORT=smtp
+      - MAILER_HOST=127.0.0.1
+      - MAILER_USER=prueba@icloud.com
+      - MAILER_PASSWORD=joejfwjbuwvoi
+      - MAILER_DELIVERY_ADDRESS=example@mail.com
+      - REQUEST_CONTEXT_HOST=php-ddd-standard.com
+      - REQUEST_CONTEXT_SCHEME=https
+    depends_on:
+      - db-prod
+
+  nginx-prod:
+    image: 'fiser/phpdddstandar-nginx:latest'
+    restart: always
+    ports:
+      - '80'
+      - '81'
+    volumes:
+      - 'app_data:/app:rw'
+    depends_on:
+      - app-prod
+    networks:
+      crv_prod_network:
+        aliases:
+          - nginx
+volumes:
+  app_data:
+    driver: local
+networks:
+  crv_prod_network:
+    driver: bridge

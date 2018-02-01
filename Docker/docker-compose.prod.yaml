@@ -30,7 +30,6 @@ services:
 #    build:
 #      context: ../
 #      dockerfile: ./Docker/php/prod/Dockerfile
-
     restart: always
     volumes:
       - app_data:/app:rw
@@ -44,6 +43,8 @@ services:
           - php
     env_file:
       - ./.env
+    depends_on:
+      - db-prod
 
   nginx-prod:
     container_name: nginx-server-prod

@@ -5,5 +5,5 @@
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 
-APP_ENV=dev
-APP_SECRET=21efc804bf5e267e9526afec0599d829
+APP_ENV=${env}
+APP_SECRET=${secret-compositeui}

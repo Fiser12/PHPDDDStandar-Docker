@@ -1,0 +1,31 @@
+# This file is part of the Php DDD Standard project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+# @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+
+parameters:
+    database_host:                      ${database_host}
+    database_port:                      ${database_port}
+    database_name:                      ${database_name}
+    database_user:                      ${database_user}
+    database_password:                  ${database_password}
+    database_server_version:            ${database_server_version}
+
+    mailer_transport:                   ${mailer_transport}
+    mailer_host:                        ${mailer_host}
+    mailer_user:                        ${mailer_user}
+    mailer_password:                    ${mailer_password}
+
+    mail_delivery_address:              ${mail_delivery_address}
+
+    secret:                             ${secret-app}
+
+    router.request_context.host:        ${router_request_context_host}
+    router.request_context.scheme:      ${router_request_context_scheme}
+    router.request_context.base_url:    my/path
+
