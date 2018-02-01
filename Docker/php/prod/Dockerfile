@@ -134,4 +134,6 @@ CMD sed \
         -e "s/\${secret-compositeui}/${SECRET_KEY_COMPOSITE_UI}/" \
         -e "s/\${env}/prod/" \
         /app/Docker/php/.compositeui-env.dist > /app/CompositeUi/.env && \
+        php /app/App/etc/bin/symfony-console doctrine:database:create --if-not-exists && \
+        php /app/$(DIR)/etc/bin/symfony-console do:mi:mi -v --no-interaction --allow-no-migration && \
         php-fpm -F
